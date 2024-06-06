@@ -12,24 +12,24 @@ void tearDown(void)
 {
     mock_IO_Verify();
     mock_IO_Destroy();
-}
-
-void testLEDInit(void) {
-    IO_Write_Expect(RCGCGPIO_R, RCGCGPIO_PORTF);
-    IO_Write_Expect(GPIOF_DEN_R, LED_PIN);
-    IO_Write_Expect(GPIOF_DIR_R, LED_PIN);
-
-    LED_Create();
     LED_Destroy();
 }
 
-void testLEDGetStateOn(void) {
+static void expectLEDInit(void) {
     IO_Write_Expect(RCGCGPIO_R, RCGCGPIO_PORTF);
     IO_Write_Expect(GPIOF_DEN_R, LED_PIN);
     IO_Write_Expect(GPIOF_DIR_R, LED_PIN);
+}
+
+void testLEDInit(void) {
+    expectLEDInit();
+    LED_Create();
+}
+
+void testLEDGetStateOn(void) {
+    expectLEDInit();
     IO_Read_ExpectAndReturn(GPIOF_DATA_R, LED_ON);
 
     LED_Create();
     TEST_ASSERT_EQUAL_INT32(LED_ON, LED_GetState());
-    LED_Destroy();
 }

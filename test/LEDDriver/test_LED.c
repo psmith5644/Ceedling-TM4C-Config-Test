@@ -32,4 +32,4 @@ void testLEDGetStateOn(void) {
     LED_Create();
     TEST_ASSERT_EQUAL_INT32(LED_ON, LED_GetState());
     LED_Destroy();
-}LED
+}

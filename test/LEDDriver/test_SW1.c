@@ -20,6 +20,20 @@ void testSW1InitCorrect(void) {
     IO_Write_Expect(GPIOF_PUR_R, SW1_PIN);
     IO_Write_Expect(GPIOF_DEN_R, SW1_PIN);
     IO_Write_Expect(GPIOF_DIR_R, ~SW1_PIN);
+
     SW1_Create();
     SW1_Destroy();
+}
+
+void testGetState(void) {
+    IO_Write_Expect(RCGCGPIO_R, RCGCGPIO_PORTF);
+    IO_Write_Expect(GPIOF_PUR_R, SW1_PIN);
+    IO_Write_Expect(GPIOF_DEN_R, SW1_PIN);
+    IO_Write_Expect(GPIOF_DIR_R, ~SW1_PIN);
+    IO_Read_ExpectAndReturn(GPIOF_DATA_R, SW1_PIN);
+
+    SW1_Create();
+    TEST_ASSERT_EQUAL_INT32(SW1_PIN, SW1_GetState());
+    SW1_Destroy();
+
 }

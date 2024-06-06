@@ -15,10 +15,6 @@ void SW1_Destroy(void) {
 
 }
 
-void SW1_On(void) {
-    LED_On();
-}
-
-void SW1_Off(void) {
-    LED_Off();
+int SW1_GetState(void) {
+    IO_Read(GPIOF_DATA_R);
 }

@@ -14,3 +14,7 @@ void LED_Destroy(void) {
 int LED_GetState(void) {
     return IO_Read(GPIOF_DATA_R) & LED_PIN;
 }
+
+void LED_On(void) {
+    IO_Write(GPIOF_DATA_R, LED_PIN);
+}

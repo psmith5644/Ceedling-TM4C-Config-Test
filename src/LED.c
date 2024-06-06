@@ -18,3 +18,7 @@ int LED_GetState(void) {
 void LED_On(void) {
     IO_Write(GPIOF_DATA_R, LED_PIN);
 }
+
+void LED_Off(void) {
+    IO_Write(GPIOF_DATA_R, ~LED_PIN);
+}

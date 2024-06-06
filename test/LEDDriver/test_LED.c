@@ -49,3 +49,11 @@ void testLEDSetStateOn(void) {
     LED_Create();
     LED_On();
 }
+
+void testLEDSetStateOff(void) {
+    expectLEDInit();
+    IO_Write_Expect(GPIOF_DATA_R, ~LED_PIN);
+
+    LED_Create();
+    LED_Off();
+}

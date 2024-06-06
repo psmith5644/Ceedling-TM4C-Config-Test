@@ -28,7 +28,7 @@ void testLEDInit(void) {
 
 void testLEDGetStateOn(void) {
     expectLEDInit();
-    IO_Read_ExpectAndReturn(GPIOF_DATA_R, LED_ON);
+    IO_Read_ExpectAndReturn(GPIOF_DATA_R, LED_PIN);
 
     LED_Create();
     TEST_ASSERT_EQUAL_INT32(LED_ON, LED_GetState());
@@ -36,7 +36,7 @@ void testLEDGetStateOn(void) {
 
 void testLEDGetStateOff(void) {
     expectLEDInit();    
-    IO_Read_ExpectAndReturn(GPIOF_DATA_R, LED_OFF);
+    IO_Read_ExpectAndReturn(GPIOF_DATA_R, ~LED_PIN);
 
     LED_Create();
     TEST_ASSERT_EQUAL_INT32(LED_OFF, LED_GetState());

@@ -37,6 +37,8 @@
     - src/**
   :support:
     - test/support
+  :include:
+    - include/**
   :libraries: []
 
 :defines:

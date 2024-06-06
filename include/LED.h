@@ -8,7 +8,7 @@ typedef enum {
 } LED_PINS;
 
 typedef enum {
-    LED_ON = 1
+    LED_OFF = 0, LED_ON = 1
 } LED_STATES;
 
 void LED_Create(void);

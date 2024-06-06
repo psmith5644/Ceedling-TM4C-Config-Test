@@ -12,6 +12,6 @@ void LED_Destroy(void) {
 }
 
 int LED_GetState(void) {
-    IO_Read(GPIOF_DATA_R);
-    return 1;
+    int LEDState = IO_Read(GPIOF_DATA_R);
+    return LEDState;
 }

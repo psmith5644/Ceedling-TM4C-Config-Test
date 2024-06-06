@@ -33,3 +33,11 @@ void testLEDGetStateOn(void) {
     LED_Create();
     TEST_ASSERT_EQUAL_INT32(LED_ON, LED_GetState());
 }
+
+void testLEDGetStateOff(void) {
+    expectLEDInit();    
+    IO_Read_ExpectAndReturn(GPIOF_DATA_R, LED_OFF);
+
+    LED_Create();
+    TEST_ASSERT_EQUAL_INT32(LED_OFF, LED_GetState());
+}

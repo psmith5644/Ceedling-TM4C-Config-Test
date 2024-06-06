@@ -2,7 +2,6 @@
 #include "LED.h"
 #include "IO.h"
 #include "TM4C123GH6PM.h"
-// #include "MockIO.h"
 
 void SW1_Create(void) {
     IO_Write(RCGCGPIO_R, RCGCGPIO_PORTF);

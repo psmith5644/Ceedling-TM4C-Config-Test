@@ -10,3 +10,8 @@ void LED_Create(void) {
 void LED_Destroy(void) {
 
 }
+
+int LED_GetState(void) {
+    IO_Read(GPIOF_DATA_R);
+    return 1;
+}

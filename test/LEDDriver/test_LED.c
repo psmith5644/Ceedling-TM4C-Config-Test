@@ -22,3 +22,14 @@ void testLEDInit(void) {
     LED_Create();
     LED_Destroy();
 }
+
+void testLEDGetStateOn(void) {
+    IO_Write_Expect(RCGCGPIO_R, RCGCGPIO_PORTF);
+    IO_Write_Expect(GPIOF_DEN_R, LED_PIN);
+    IO_Write_Expect(GPIOF_DIR_R, LED_PIN);
+    IO_Read_ExpectAndReturn(GPIOF_DATA_R, LED_ON);
+
+    LED_Create();
+    TEST_ASSERT_EQUAL_INT32(LED_ON, LED_GetState());
+    LED_Destroy();
+}LED

@@ -7,7 +7,12 @@ typedef enum {
     LED_PIN = PIN1
 } LED_PINS;
 
+typedef enum {
+    LED_ON = 1
+} LED_STATES;
+
 void LED_Create(void);
 void LED_Destroy(void);
+int LED_GetState(void);
 
 #endif // __LED_H__

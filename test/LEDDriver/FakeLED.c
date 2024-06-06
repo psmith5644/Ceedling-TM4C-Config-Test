@@ -11,11 +11,11 @@ void FakeLED_Destroy(void) {
 
 }
 
-void FakeLED_Off(void) {
+void LED_Off(void) {
     LEDState = LED_OFF;
 }
 
-void FakeLED_On(void) {
+void LED_On(void) {
     LEDState = LED_ON;
 }
 

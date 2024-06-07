@@ -7,7 +7,7 @@ void SW1_Create(void) {
     IO_Write(RCGCGPIO_R, RCGCGPIO_PORTF);
     IO_Write(GPIOF_PUR_R, SW1_PIN);
     IO_Write(GPIOF_DEN_R, SW1_PIN);
-    IO_Write(GPIOF_DIR_R, ~SW1_PIN);
+    IO_Write(GPIOF_DIR_R, (ioData)~SW1_PIN);
 }
 
 void SW1_Destroy(void) {

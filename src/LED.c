@@ -20,5 +20,5 @@ void LED_On(void) {
 }
 
 void LED_Off(void) {
-    IO_Write(GPIOF_DATA_R, ~LED_PIN);
+    IO_Write(GPIOF_DATA_R, (ioData)~LED_PIN);
 }

@@ -18,7 +18,5 @@ void LEDController_UpdateLED(void) {
         case SW1_CLOSED:
             LED_On();
             break;
-        default:
-            break;
     }
 }

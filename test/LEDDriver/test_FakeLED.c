@@ -2,18 +2,18 @@
 #include "FakeLED.h"
 
 void testFakeLEDOff(void) {
-    FakeLED_Create();
-    FakeLED_Off();
+    LED_Create();
+    LED_Off();
 
     TEST_ASSERT_EQUAL_INT(LED_OFF, LED_GetState());
 
-    FakeLED_Destroy();
+    LED_Destroy();
 }
 
 void testFakeLEDOn(void) {
-    FakeLED_Create();
-    FakeLED_On();
+    LED_Create();
+    LED_On();
 
     TEST_ASSERT_EQUAL_INT(LED_ON, LED_GetState());
-    FakeLED_Destroy();
+    LED_Destroy();
 }

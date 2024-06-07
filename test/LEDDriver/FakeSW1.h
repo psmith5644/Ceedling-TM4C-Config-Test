@@ -3,8 +3,6 @@
 
 #include "SW1.h"
 
-void FakeSW1_Create(void);
-void FakeSW1_Destroy(void);
 void FakeSW1_Open(void);
 void FakeSW1_Close(void);
 

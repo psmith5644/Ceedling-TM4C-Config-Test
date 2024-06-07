@@ -2,11 +2,10 @@
 
 static SW1_STATE SW1State;
 
-void FakeSW1_Create(void) {
-
+void SW1_Create(void) {
 }
 
-void FakeSW1_Destroy(void) {
+void SW1_Destroy(void) {
 
 }
 

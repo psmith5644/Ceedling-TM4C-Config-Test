@@ -1,13 +1,13 @@
-#include "FakeLED.h"
+#include "LED.h"
 
 static LED_STATES LEDState;
 
-void FakeLED_Create(void) {
+void LED_Create(void) {
 
 }
 
 
-void FakeLED_Destroy(void) {
+void LED_Destroy(void) {
 
 }
 

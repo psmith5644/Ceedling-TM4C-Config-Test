@@ -1,5 +1,6 @@
+#ifndef __FAKELED_H__
+#define __FAKELED_H__
+
 #include "LED.h"
 
-void FakeLED_Create(void);
-void FakeLED_Destroy(void);
-
+#endif // __FAKELED_H__

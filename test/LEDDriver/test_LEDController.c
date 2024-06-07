@@ -24,7 +24,7 @@ void testLEDOnWhenSwitchClosed(void) {
 
 
     FakeSW1_Close();    
-    LED_Contrller_UpdateLED();
+    LEDController_UpdateLED();
     TEST_ASSERT_EQUAL_INT32(LED_ON, LED_GetState());
 
     LEDController_Destroy();

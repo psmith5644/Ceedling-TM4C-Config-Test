@@ -1,2 +1,7 @@
 build/
 vendor/
+Listings/
+Objects/
+
+*.scvd
+*.uvguix.*

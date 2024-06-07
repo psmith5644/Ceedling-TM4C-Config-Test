@@ -10,7 +10,7 @@ void LEDController_Destroy(void) {
     
 }
 
-void LED_Controller_UpdateLED(void) {
+void LEDController_UpdateLED(void) {
     switch(SW1_GetState()) {
         case SW1_OPEN:
             LED_Off();

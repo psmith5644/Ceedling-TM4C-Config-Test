@@ -9,7 +9,7 @@ void testLEDOffWhenSwitchOpen(void) {
     LED_Create();
     
     FakeSW1_Open();
-    LED_Controller_UpdateLED();
+    LEDController_UpdateLED();
     TEST_ASSERT_EQUAL_INT32(LED_OFF, LED_GetState());
     
     LEDController_Destroy();
@@ -24,7 +24,7 @@ void testLEDOnWhenSwitchClosed(void) {
 
 
     FakeSW1_Close();    
-    LED_Controller_UpdateLED();
+    LED_Contrller_UpdateLED();
     TEST_ASSERT_EQUAL_INT32(LED_ON, LED_GetState());
 
     LEDController_Destroy();

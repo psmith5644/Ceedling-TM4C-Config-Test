@@ -10,7 +10,7 @@ typedef enum {
 } TM4C_REGISTER_OFFSETS;
 
 typedef enum {
-    RCGCGPIO_R = 0x400FE604,
+    RCGCGPIO_R = 0x400FE608,
     GPIOF_PUR_R =  0x40025510,
     GPIOF_DEN_R = 0x4002551C,
     GPIOF_DIR_R = 0x40025400,

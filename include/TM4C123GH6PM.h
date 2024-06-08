@@ -14,7 +14,7 @@ typedef enum {
     GPIOF_PUR_R =  0x40025510,
     GPIOF_DEN_R = 0x4002551C,
     GPIOF_DIR_R = 0x40025400,
-    GPIOF_DATA_R = 0x40025000
+    GPIOF_DATABITS_R = 0x400253FC
 } TM4C_REGISTERS;
 
 typedef enum {

@@ -16,5 +16,5 @@ void SW1_Destroy(void) {
 }
 
 SW1_STATE SW1_GetState(void) {
-    return IO_Read(GPIOF_DATA_R) & SW1_PIN;
+    return IO_Read(GPIOF_DATABITS_R) & SW1_PIN;
 }

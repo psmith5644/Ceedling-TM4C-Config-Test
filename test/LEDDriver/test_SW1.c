@@ -30,7 +30,7 @@ void testSW1InitCorrect(void) {
 
 void testGetSW1StateClose(void) {
     expectSW1Init();
-    IO_Read_ExpectAndReturn(GPIOF_DATA_R, ~SW1_PIN);
+    IO_Read_ExpectAndReturn(GPIOF_DATABITS_R, ~SW1_PIN);
 
     SW1_Create();
     TEST_ASSERT_EQUAL_INT32(SW1_CLOSED, SW1_GetState());
@@ -38,7 +38,7 @@ void testGetSW1StateClose(void) {
 
 void testGetSW1StateOpen(void) {
     expectSW1Init();
-    IO_Read_ExpectAndReturn(GPIOF_DATA_R, SW1_PIN);
+    IO_Read_ExpectAndReturn(GPIOF_DATABITS_R, SW1_PIN);
 
     SW1_Create();
     TEST_ASSERT_EQUAL_INT32(SW1_OPEN, SW1_GetState());

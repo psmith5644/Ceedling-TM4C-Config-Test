@@ -8,6 +8,5 @@ int main(void) {
     LEDController_Create();
     while (1) {
         LEDController_UpdateLED();
-        for (int i = 0; i < 1000000; i++) {}
     }
 }

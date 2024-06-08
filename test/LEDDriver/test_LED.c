@@ -16,9 +16,9 @@ void tearDown(void)
 }
 
 static void expectLEDInit(void) {
-    IO_Write_Expect(RCGCGPIO_R, RCGCGPIO_PORTF);
-    IO_Write_Expect(GPIOF_DEN_R, LED_PIN);
-    IO_Write_Expect(GPIOF_DIR_R, LED_PIN);
+    IO_SetBits_Expect(RCGCGPIO_R, RCGCGPIO_PORTF);
+    IO_SetBits_Expect(GPIOF_DEN_R, LED_PIN);
+    IO_SetBits_Expect(GPIOF_DIR_R, LED_PIN);
 }
 
 void testLEDInit(void) {
@@ -44,7 +44,7 @@ void testLEDGetStateOff(void) {
 
 void testLEDSetStateOn(void) {
     expectLEDInit();
-    IO_Write_Expect(GPIOF_DATA_R, LED_PIN);
+    IO_SetBits_Expect(GPIOF_DATA_R, LED_PIN);
 
     LED_Create();
     LED_On();
@@ -52,7 +52,7 @@ void testLEDSetStateOn(void) {
 
 void testLEDSetStateOff(void) {
     expectLEDInit();
-    IO_Write_Expect(GPIOF_DATA_R, ~LED_PIN);
+    IO_ClearBits_Expect(GPIOF_DATA_R, ~LED_PIN);
 
     LED_Create();
     LED_Off();

@@ -5,6 +5,8 @@
 
 typedef uint32_t ioAddress;
 typedef uint32_t ioData;
+void IO_Create(void);
+void IO_Destroy(void);
 ioData IO_Read(ioAddress offset);
 void IO_Write(ioAddress offset, ioData data);
 void IO_SetBits(ioAddress offset, ioData data);

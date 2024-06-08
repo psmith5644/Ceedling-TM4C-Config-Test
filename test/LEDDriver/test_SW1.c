@@ -17,10 +17,10 @@ void tearDown(void)
 }
 
 static void expectSW1Init(void) {
-    IO_Write_Expect(RCGCGPIO_R, RCGCGPIO_PORTF);
-    IO_Write_Expect(GPIOF_PUR_R, SW1_PIN);
-    IO_Write_Expect(GPIOF_DEN_R, SW1_PIN);
-    IO_Write_Expect(GPIOF_DIR_R, ~SW1_PIN);
+    IO_SetBits_Expect(RCGCGPIO_R, RCGCGPIO_PORTF);
+    IO_SetBits_Expect(GPIOF_PUR_R, SW1_PIN);
+    IO_SetBits_Expect(GPIOF_DEN_R, SW1_PIN);
+    IO_ClearBits_Expect(GPIOF_DIR_R, ~SW1_PIN);
 }
 
 void testSW1InitCorrect(void) {

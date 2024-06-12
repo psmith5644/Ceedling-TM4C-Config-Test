@@ -19,11 +19,5 @@ typedef enum {
 
 typedef enum {
     RCGCGPIO_PORTF = (1 << 5),
-    SW1_PIN = (1 << 4)
 } TM4C_BITS;
-
-typedef enum {
-    PIN1 = (1 << 1) 
-} PINS;
-
 #endif // __TM4C123GH6PM_H__

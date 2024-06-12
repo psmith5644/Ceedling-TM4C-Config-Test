@@ -4,6 +4,8 @@
 #include <stdint.h>
 #include "TM4C123GH6PM.h"
 
+#define SW1_PIN (1 << 1)
+
 typedef enum {
     SW1_CLOSED = 0, SW1_OPEN = (1 << 4)
 } SW1_STATE;

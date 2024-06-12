@@ -34,3 +34,11 @@ void testIOSetBitsZerosDoNotClear(void) {
 
     TEST_ASSERT_EQUAL_INT32(0xDEADBEEF, IO_Read((ioAddress)offset));
 }
+
+void testIOClearBitsOnlyClearsZeros(void) {
+    offset = malloc(sizeof(uint32_t));
+    IO_Write((ioAddress)offset, 0xDEADBEEF);
+    IO_ClearBits((ioAddress)offset, ~0xDEAD0000);
+
+    TEST_ASSERT_EQUAL_INT32(0x0000BEEF, IO_Read((ioAddress)offset));
+}

@@ -4,7 +4,7 @@
 #include "TM4C123GH6PM.h"
 
 typedef enum {
-    LED_PIN = PIN1
+    LED_PIN = (1 << 1)
 } LED_PINS;
 
 typedef enum {

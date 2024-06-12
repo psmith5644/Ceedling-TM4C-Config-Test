@@ -5,7 +5,7 @@
 #include "TM4C123GH6PM.h"
 
 typedef enum {
-    SW1_CLOSED = 0, SW1_OPEN = SW1_PIN
+    SW1_CLOSED = 0, SW1_OPEN = (1 << 4)
 } SW1_STATE;
 
 void SW1_Create(void);

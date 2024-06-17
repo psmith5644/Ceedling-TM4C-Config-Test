@@ -1,7 +1,7 @@
 #include "TM4C123GH6PM.h"
 #include <stdlib.h>
-#include <stdio.h>
 
+// Initializes simulated registers for testing
 void TM4C_init(void) {
     SYSCTL = (SYSCTL_Type*)malloc(sizeof(SYSCTL_Type));
     SYSCTL_Type sysctlstruct = {.RCGCGPIO = 0x4000EFF0};

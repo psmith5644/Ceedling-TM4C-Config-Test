@@ -18,9 +18,9 @@ void tearDown(void)
 
 static void expectLEDInit(void) {
     TM4C_init();
-    IO_SetBits_Expect(SYSCTL->RCGCGPIO, (1 << 5));
-    IO_SetBits_Expect(GPIOF->DEN, LED_PIN);
-    IO_SetBits_Expect(GPIOF->DIR, LED_PIN);
+    IO_SetBits_Expect(&SYSCTL->RCGCGPIO, (1 << 5));
+    IO_SetBits_Expect(&GPIOF->DEN, LED_PIN);
+    IO_SetBits_Expect(&GPIOF->DIR, LED_PIN);
 }
 
 void testLEDInit(void) {
@@ -30,15 +30,14 @@ void testLEDInit(void) {
 
 void testLEDGetStateOn(void) {
     expectLEDInit();
-    IO_Read_ExpectAndReturn(GPIOF->DATA, LED_PIN);
-
+    IO_Read_ExpectAndReturn(&GPIOF->DATA, LED_PIN);
     LED_Create();
     TEST_ASSERT_EQUAL_INT32(LED_ON, LED_GetState());
 }
 
 void testLEDGetStateOff(void) {
     expectLEDInit();    
-    IO_Read_ExpectAndReturn(GPIOF->DATA, ~LED_PIN);
+    IO_Read_ExpectAndReturn(&GPIOF->DATA, ~LED_PIN);
 
     LED_Create();
     TEST_ASSERT_EQUAL_INT32(LED_OFF, LED_GetState());
@@ -46,7 +45,7 @@ void testLEDGetStateOff(void) {
 
 void testLEDSetStateOn(void) {
     expectLEDInit();
-    IO_SetBits_Expect(GPIOF->DATA, LED_PIN);
+    IO_SetBits_Expect(&GPIOF->DATA, LED_PIN);
 
     LED_Create();
     LED_On();
@@ -54,7 +53,7 @@ void testLEDSetStateOn(void) {
 
 void testLEDSetStateOff(void) {
     expectLEDInit();
-    IO_ClearBits_Expect(GPIOF->DATA, ~LED_PIN);
+    IO_ClearBits_Expect(&GPIOF->DATA, ~LED_PIN);
 
     LED_Create();
     LED_Off();

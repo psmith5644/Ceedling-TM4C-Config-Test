@@ -19,10 +19,10 @@ void tearDown(void)
 
 static void expectSW1Init(void) {
     TM4C_init();
-    IO_SetBits_Expect(SYSCTL->RCGCGPIO, (1 << 5));
-    IO_SetBits_Expect(GPIOF->PUR, SW1_PIN);
-    IO_SetBits_Expect(GPIOF->DEN, SW1_PIN);
-    IO_ClearBits_Expect(GPIOF->DIR, ~SW1_PIN);
+    IO_SetBits_Expect(&SYSCTL->RCGCGPIO, (1 << 5));
+    IO_SetBits_Expect(&GPIOF->PUR, SW1_PIN);
+    IO_SetBits_Expect(&GPIOF->DEN, SW1_PIN);
+    IO_ClearBits_Expect(&GPIOF->DIR, ~SW1_PIN);
 }
 
 void testSW1InitCorrect(void) {
@@ -32,7 +32,7 @@ void testSW1InitCorrect(void) {
 
 void testGetSW1StateClose(void) {
     expectSW1Init();
-    IO_Read_ExpectAndReturn(GPIOF->DATA, ~SW1_PIN);
+    IO_Read_ExpectAndReturn(&GPIOF->DATA, ~SW1_PIN);
 
     SW1_Create();
     TEST_ASSERT_EQUAL_INT32(SW1_CLOSED, SW1_GetState());
@@ -40,7 +40,7 @@ void testGetSW1StateClose(void) {
 
 void testGetSW1StateOpen(void) {
     expectSW1Init();
-    IO_Read_ExpectAndReturn(GPIOF->DATA, SW1_PIN);
+    IO_Read_ExpectAndReturn(&GPIOF->DATA, SW1_PIN);
 
     SW1_Create();
     TEST_ASSERT_EQUAL_INT32(SW1_OPEN, SW1_GetState());

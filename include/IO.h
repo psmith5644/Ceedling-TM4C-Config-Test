@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 
-typedef uint32_t ioAddress;
+typedef volatile uint32_t * ioAddress;
 typedef uint32_t ioData;
 void IO_Create(void);
 void IO_Destroy(void);

@@ -503,11 +503,6 @@
               <FileType>5</FileType>
               <FilePath>.\include\SW1.h</FilePath>
             </File>
-            <File>
-              <FileName>TM4C123GH6PM.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\include\TM4C123GH6PM.h</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>

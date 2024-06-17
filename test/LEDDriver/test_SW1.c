@@ -1,4 +1,5 @@
 #include "unity.h"
+#define EXTERN
 #include "TM4C123GH6PM.h"
 #include "SW1.h"
 #include "mock_IO.h"
@@ -17,10 +18,11 @@ void tearDown(void)
 }
 
 static void expectSW1Init(void) {
-    IO_SetBits_Expect(RCGCGPIO_R, RCGCGPIO_PORTF);
-    IO_SetBits_Expect(GPIOF_PUR_R, SW1_PIN);
-    IO_SetBits_Expect(GPIOF_DEN_R, SW1_PIN);
-    IO_ClearBits_Expect(GPIOF_DIR_R, ~SW1_PIN);
+    TM4C_init();
+    IO_SetBits_Expect(SYSCTL->RCGCGPIO, (1 << 5));
+    IO_SetBits_Expect(GPIOF->PUR, SW1_PIN);
+    IO_SetBits_Expect(GPIOF->DEN, SW1_PIN);
+    IO_ClearBits_Expect(GPIOF->DIR, ~SW1_PIN);
 }
 
 void testSW1InitCorrect(void) {
@@ -30,7 +32,7 @@ void testSW1InitCorrect(void) {
 
 void testGetSW1StateClose(void) {
     expectSW1Init();
-    IO_Read_ExpectAndReturn(GPIOF_DATABITS_R, ~SW1_PIN);
+    IO_Read_ExpectAndReturn(GPIOF->DATA, ~SW1_PIN);
 
     SW1_Create();
     TEST_ASSERT_EQUAL_INT32(SW1_CLOSED, SW1_GetState());
@@ -38,7 +40,7 @@ void testGetSW1StateClose(void) {
 
 void testGetSW1StateOpen(void) {
     expectSW1Init();
-    IO_Read_ExpectAndReturn(GPIOF_DATABITS_R, SW1_PIN);
+    IO_Read_ExpectAndReturn(GPIOF->DATA, SW1_PIN);
 
     SW1_Create();
     TEST_ASSERT_EQUAL_INT32(SW1_OPEN, SW1_GetState());
